@@ -1,17 +1,18 @@
 #!/usr/bin/env ruby
 
-def slugify(str)
+def slugify(str, salt)
   require 'digest'
-  Digest::SHA1.hexdigest(str)
+  Digest::SHA1.hexdigest(salt + str)
 end
 
 template = File.read('template/index.html')
 output = []
+salt = "manila-js-003-"
 
 STDIN.read.split("\n").each do |line|
   name, email = line.split(",")
 
-  slug = slugify(email)
+  slug = slugify(email, salt)
   html = template.gsub('{{ name }}', name)
   out  = "pdf/#{slug}.pdf"
   tmp  = "template/_tmp.html"
