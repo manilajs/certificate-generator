@@ -1,0 +1,61 @@
+@font-face {
+    font-family: lato;
+    font-weight: 300;
+    src: url(styles/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: lato;
+    font-weight: 700;
+    src: url(styles/Lato-Bold.ttf);
+}
+
+@page {
+  size: a4;
+  margin: 35mm 50mm 35mm 50mm; }
+
+* { margin: 0; padding: 0; }
+
+body {
+  line-height: 1.6em;
+  font-size: 14pt;
+  font-family: lato;
+  font-weight: 300;
+}
+
+.all {
+  text-align: center;
+  margin: 0 auto; }
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8em;
+  color: #9a5;
+  font-family: Lato, sans-serif;
+  letter-spacing: 2px;
+  text-align: center; }
+
+p.brief {
+  margin-top: 4em; }
+
+h1 span {
+  padding: 5px 0;
+  border-top: solid 1px #9a5;
+  border-bottom: solid 1px #9a5; }
+
+h2 {
+  font-size: 2em; }
+
+h1, p, h2 {
+  margin: 1em 0; }
+
+.signature {
+  margin-top: 3em;
+  font-size: 0.8em;
+  line-height: 1.4em; }
+
+.signature .title {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
