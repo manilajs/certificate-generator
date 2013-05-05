@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
 
 def slugify(str)
-  str.scan(/[A-Za-z]+/).join("-").downcase
+  require 'digest'
+  Digest::SHA1.hexdigest(str)
 end
 
 template = File.read('template/index.html')
+output = []
 
 STDIN.read.split("\n").each do |line|
   name, email = line.split(",")
@@ -16,7 +18,10 @@ STDIN.read.split("\n").each do |line|
   File.open(tmp, 'w') { |f| f.write html }
 
   # puts "==> #{out} (#{name})"
-  system "xhtml2pdf template/_tmp.html #{out}"
+  output << [name, email, slug].join(",")
+  system "xhtml2pdf template/_tmp.html #{out} 1>&2"
   File.unlink tmp
 end
 
+
+puts output.join("\n")
